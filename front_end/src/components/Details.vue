@@ -14,6 +14,7 @@
           </b-card-text>
           <b-card-text>Precio Unidad:</b-card-text>
           <b-card-text>{{getDetails.precio_unidad}}</b-card-text>
+          <b-card-text>Vendedor</b-card-text>
        
         </b-card-body>
       </b-col>

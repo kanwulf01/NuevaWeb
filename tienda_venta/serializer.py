@@ -1,10 +1,8 @@
 from rest_framework import serializers
 from .models import Cliente2
-<<<<<<< HEAD
 from .models import OfertaProducto
+from tienda_almacen.models import Producto
 
-=======
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44
 
 
 from rest_framework.fields import CurrentUserDefault
@@ -24,11 +22,16 @@ class LoginSerializer(serializers.ModelSerializer):
 
 
        
-<<<<<<< HEAD
+
+
+class getProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Producto
+   
+
+
 class OfertaSerializer(serializers.ModelSerializer):
+    producto = getProductsSerializer(read_only=True)
     class Meta:
         model = OfertaProducto
         fields = '__all__'
-=======
-
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44

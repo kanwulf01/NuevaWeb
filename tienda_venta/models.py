@@ -67,36 +67,25 @@ class Venta(models.Model):
 
         
 '''MODELADO DE PRUEBA '''
-
+'''
 class ClienteOferta(models.Model):
     tienday = models.ForeignKey(Cliente2, blank=True, on_delete=models.CASCADE)
     productoy = models.ForeignKey(Producto, blank=True, on_delete=models.CASCADE)
     ofertx = models.AutoField(primary_key=True, default=False)
-<<<<<<< HEAD
-
-class Oferta(models.Model):
-    booleano = models.BooleanField(default=False)
-    ofertaz = models.ForeignKey(ClienteOferta, blank=True, on_delete=models.CASCADE)
-
-=======
-
-class Oferta(models.Model):
-    booleano = models.BooleanField(default=False)
-    ofertaz = models.ForeignKey(ClienteOferta, blank=True, on_delete=models.CASCADE)
-
+'''
 
 class Compra(models.Model):
     numero_compra = models.CharField(max_length=30)
     oferta = models.CharField(max_length = 30)
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44
 
-class Compra(models.Model):
-    numero_compra = models.CharField(max_length=30)
-    oferta = models.CharField(max_length = 30)
+
 
 class OfertaProducto(models.Model):
     tiendaz = models.ForeignKey(Cliente2, blank=True, on_delete=models.CASCADE)
     productoz = models.ForeignKey(Producto, blank=True, on_delete=models.CASCADE)
     ofertaz = models.AutoField(primary_key=True)
+   
 
-
+class Oferta(models.Model):
+    booleano = models.BooleanField(default=False)
+    ofertaz = models.ForeignKey(OfertaProducto, blank=True, on_delete=models.CASCADE)
