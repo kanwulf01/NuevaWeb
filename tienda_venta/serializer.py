@@ -1,20 +1,20 @@
 from rest_framework import serializers
 from .models import Cliente2
-<<<<<<< HEAD
-from .models import OfertaProducto
+from .models import OfertaProducto, PseudoJoin
+from tienda_almacen.models import Producto
+from tienda_almacen.serializer import ProductoSerializer
 
-=======
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44
 
 
 from rest_framework.fields import CurrentUserDefault
 
-class Cliente2Serializer(serializers.ModelSerializer):
+class Cliente2Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Cliente2
-        fields = '__all__'
+        fields = ('cedula','nombre','url','lastname','email','phone','seller','contra')
 
-    
+
+
 
 
 class LoginSerializer(serializers.ModelSerializer):
@@ -22,13 +22,23 @@ class LoginSerializer(serializers.ModelSerializer):
         model = Cliente2
         fields = '__all__'
 
+   
 
-       
-<<<<<<< HEAD
+
 class OfertaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = OfertaProducto
+        model = PseudoJoin
         fields = '__all__'
-=======
 
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44
+
+class JoinFalso(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = PseudoJoin
+        fields = ('id','url','vendedor','productos')
+
+class JoinFalso2(serializers.ModelSerializer):
+    vendedor = LoginSerializer()
+    productos = ProductoSerializer()
+    class Meta:
+        model = PseudoJoin
+        fields = ('id','url','vendedor','productos')

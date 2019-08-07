@@ -37,11 +37,11 @@ export default {
             'setCount'
         ]),
         getProductos(){
-            const path =  'http://localhost:8000/api/v1.0/producto/'
+            const path =  'http://localhost:8000/api/v1.0/test1/'
             axios.get(path).then((response)=>{
-                this.productos = response.data
-                
+               // this.setProductos(response.data)
                 this.setProducts(response.data)
+                alert(this.getProducts[0].productos.nombre_producto)
             }).catch((err)=>{
                 console.log(err)
                 

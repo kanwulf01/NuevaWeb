@@ -1,19 +1,19 @@
 from rest_framework import routers
 from .viewsets import ClienteViewSets
 from .viewsets import ClienteLogin
-<<<<<<< HEAD
+from .viewsets import viewjoin
 from .viewsets import OfertaViewSets
-=======
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44
+from .viewsets import VistaPrueba
 
 
 router = routers.SimpleRouter()
 router.register('clientes', ClienteViewSets)
 router.register('busca', ClienteLogin)
-<<<<<<< HEAD
+
 router.register('Oferta',OfertaViewSets)
-=======
->>>>>>> 9e4ccb3cd64a0c11aa533cfc17709c09d9667f44
+router.register('test',viewjoin)
+router.register('test1',VistaPrueba)
+
 
 
 

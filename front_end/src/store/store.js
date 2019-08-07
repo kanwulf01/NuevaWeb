@@ -16,7 +16,7 @@ export const store = new Vuex.Store({
     products: [],
     detalle: null,
     count:[],
-
+   
   },
   getters: {
     profile: state => {

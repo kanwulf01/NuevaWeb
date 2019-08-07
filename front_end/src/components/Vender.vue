@@ -51,8 +51,8 @@ export default {
      
       },
       oferta:{
-        tiendaz:null,
-        productoz:null,
+        vendedor:null,
+        productos:null,
        
 
       }}
@@ -72,9 +72,9 @@ export default {
              
          },
          registraOferta(){
-          this.oferta.productoz = this.dat.id_producto
-          this.oferta.tiendaz = this.profile.cedula
-          alert(this.oferta.clientez + this.oferta.productoz)
+          this.oferta.productos = this.dat.id_producto
+          this.oferta.vendedor = this.profile.cedula
+          alert(this.oferta.vendedor + this.oferta.productos)
           this.$store.dispatch('api_oferta',this.oferta)
           .then(response =>{
             alert('Se registro todo bien')

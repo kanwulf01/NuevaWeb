@@ -4,8 +4,8 @@ from .viewsets import ProductoViewSets, ListaProductos2
 
 
 router = routers.SimpleRouter()
-router.register('producto', ProductoViewSets)
 router.register('listaproducto',ListaProductos2)
+router.register('producto', ProductoViewSets)
 
 
 urlpatterns = router.urls

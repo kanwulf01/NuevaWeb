@@ -63,6 +63,7 @@ computed:{
     
   ]),trae(){
       return this.getProducts
+      alert('prueba1'+this.getProducts)
     },
     trae2(){
       return this.getCount
