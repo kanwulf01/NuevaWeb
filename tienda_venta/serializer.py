@@ -1,8 +1,13 @@
 from rest_framework import serializers
 from .models import Cliente2
+<<<<<<< HEAD
 from .models import OfertaProducto, PseudoJoin
 from tienda_almacen.models import Producto
 from tienda_almacen.serializer import ProductoSerializer
+=======
+from .models import OfertaProducto
+from tienda_almacen.models import Producto
+>>>>>>> b33096b293b252160e6f4f3ea609da2e58199d33
 
 
 
@@ -25,8 +30,22 @@ class LoginSerializer(serializers.ModelSerializer):
    
 
 
-class OfertaSerializer(serializers.ModelSerializer):
+<<<<<<< HEAD
+=======
+       
+
+
+class getProductsSerializer(serializers.ModelSerializer):
     class Meta:
+        model = Producto
+   
+
+
+>>>>>>> b33096b293b252160e6f4f3ea609da2e58199d33
+class OfertaSerializer(serializers.ModelSerializer):
+    producto = getProductsSerializer(read_only=True)
+    class Meta:
+<<<<<<< HEAD
         model = PseudoJoin
         fields = '__all__'
 
@@ -42,3 +61,7 @@ class JoinFalso2(serializers.ModelSerializer):
     class Meta:
         model = PseudoJoin
         fields = ('id','url','vendedor','productos')
+=======
+        model = OfertaProducto
+        fields = '__all__'
+>>>>>>> b33096b293b252160e6f4f3ea609da2e58199d33

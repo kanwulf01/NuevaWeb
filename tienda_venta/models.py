@@ -88,6 +88,7 @@ class OfertaProducto(models.Model):
     productoz = models.ForeignKey(Producto, blank=True, on_delete=models.CASCADE)
     ofertaz = models.AutoField(primary_key=True)
    
+<<<<<<< HEAD
 
 class Oferta(models.Model):
     booleano = models.BooleanField(default=False)
@@ -99,3 +100,9 @@ class PseudoJoin(models.Model):
     vendedor = models.ForeignKey(Cliente2, on_delete=models.CASCADE)
     productos = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedidos = models.ForeignKey(Pedido, on_delete=models.CASCADE, null=True)
+=======
+
+class Oferta(models.Model):
+    booleano = models.BooleanField(default=False)
+    ofertaz = models.ForeignKey(OfertaProducto, blank=True, on_delete=models.CASCADE)
+>>>>>>> b33096b293b252160e6f4f3ea609da2e58199d33

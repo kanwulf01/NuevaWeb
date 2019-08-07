@@ -15,8 +15,11 @@
           <b-card-text>Precio Unidad:</b-card-text>
           <b-card-text>{{getDetails.precio_unidad}}</b-card-text>
           <b-card-text>Vendedor</b-card-text>
+<<<<<<< HEAD
            <b-card-text>{{getProducts}}</b-card-text>
           
+=======
+>>>>>>> b33096b293b252160e6f4f3ea609da2e58199d33
        
         </b-card-body>
       </b-col>
