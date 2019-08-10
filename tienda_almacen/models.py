@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 
+class Categoria(models.Model):
+    id_categoria = models.IntegerField(primary_key=True, default=0)
+    nombre_categoria = models.CharField(max_length=30)
+   
+
 
 class Producto(models.Model):
     id_producto = models.IntegerField(primary_key=True)
@@ -11,18 +16,14 @@ class Producto(models.Model):
     photo = models.URLField(max_length=500, blank=True, default='')
     descripcion = models.CharField(max_length=200, default="")
     images = models.CharField(max_length=500, default='')
+    categoria_id = models.ForeignKey(Categoria, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre_producto
 
 
 
-class Categoria(models.Model):
-    nombre_categoria = models.CharField(max_length=30)
-    producto = models.ForeignKey(Producto, blank=True, on_delete=models.CASCADE)
 
-    class meta:
-        unique_together = ('course', 'nombre_categoria')
 
 
 class imagen(models.Model):
