@@ -15,6 +15,7 @@ export const store = new Vuex.Store({
     productos: { id_producto: null, nombre_producto: null, cantidad_producto: null, precio_unidad: null, descripcion: null, images: null },
     products: [],
     detalle: null,
+    categorias: [],
     count:[],
    
   },
@@ -34,6 +35,9 @@ export const store = new Vuex.Store({
     getProducts1: state => {
       return state.products1
     },
+    getCategorias: state => {
+      return state.categorias
+    }
     
   }, plugins: [createPersistedState()],
   mutations: {
@@ -60,6 +64,9 @@ export const store = new Vuex.Store({
     },
     setId:(state,field) =>{
       state.cedula = field;
+    },
+    setCategorias: (state,field) =>{
+      state.categorias = field;
     }
   },
   actions: {
