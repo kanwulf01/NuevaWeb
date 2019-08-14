@@ -1,6 +1,15 @@
 from rest_framework import viewsets
 from .models import Producto
+from .models import Categoria
+
 from .serializer import ProductoSerializer
+from .serializer import CategoriaSerializer
+
+
+
+class CategoriaViewSets(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()   
+    serializer_class = CategoriaSerializer
 
 class ProductoViewSets(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
