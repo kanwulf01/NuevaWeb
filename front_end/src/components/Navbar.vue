@@ -8,11 +8,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Opciones</a>
-      </li>
+      
       <li class="nav-item dropdown">
-       <b-form-select v-model="selected" :options="this.categorias"   class="nav-item">
+       <b-form-select v-model="selected" :options="this.categorias"  @change = "getCateProducts()" class="nav-item">
                   <!-- This slot appears above the options from 'options' prop -->
                   <template slot="first">
                     <option :value="null" disabled>CATEGORIAS</option>
@@ -60,6 +58,7 @@
 
 </div>
 
+
 </template>
 
 <script>
@@ -78,11 +77,12 @@ export default {
     }
   },
 components:{
-  Cartas, 
+  'cartas':Cartas
 },methods:{
   ...mapMutations([
     'setFieldProfilename',
-    'setCategorias'
+    'setCategorias',
+    'setProducts'
   ]),
   getCategorias(){
       const path =  'http://localhost:8000/api/v1.0/categoria/'
@@ -94,10 +94,28 @@ components:{
             this.categorias.push(categoria);
           }
           console.log(this.categorias)
+          
       }).catch((err)=>{
           console.log(err)
           
       })
+  },
+  getCateProducts(){
+    
+    if(this.selected){
+      this.$store.dispatch('api_productoCategoria', this.selected)
+        .then(response => {
+          console.log(response)
+          this.setProducts(response.data)
+        })
+        .catch(err => {
+          console.log(this.err);
+          
+       
+
+        });      
+    }
+    
   },
   deleteUser: function(){
     this.setFieldProfilename("");

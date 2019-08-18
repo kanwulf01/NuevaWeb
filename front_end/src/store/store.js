@@ -142,7 +142,19 @@ export const store = new Vuex.Store({
         })
       })
 
+    },
+    api_productoCategoria: (context,selected) =>{
+      
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:8000/api/v1.0/pCategoria/?q='+selected).then((response)=>{
+          console.log('response')  
+          resolve(response);
+        }).catch((err)=>{
+          console.log(err)          
+        })
+      })      
     }
-    
-  }
+
+
+    }
 })

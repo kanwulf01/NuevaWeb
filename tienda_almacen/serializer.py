@@ -4,10 +4,10 @@ from tienda_almacen.models import Categoria
 
 
 
-class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
+class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoria
-        fields = ('url', 'id_categoria', 'nombre_categoria')
+        fields = '__all__'
 
 class ProductoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -5,6 +5,9 @@ from django.db import models
 class Categoria(models.Model):
     id_categoria = models.IntegerField(primary_key=True, default=0)
     nombre_categoria = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.id_categoria
    
 
 
@@ -16,7 +19,7 @@ class Producto(models.Model):
     photo = models.URLField(max_length=500, blank=True, default='')
     descripcion = models.CharField(max_length=200, default="")
     images = models.CharField(max_length=500, default='')
-    categoria_id = models.ForeignKey(Categoria, blank=True, on_delete=models.CASCADE)
+    categoria_id = models.IntegerField()
 
     def __str__(self):
         return self.nombre_producto

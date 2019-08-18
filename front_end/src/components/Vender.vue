@@ -103,12 +103,8 @@ export default {
      register2(){
       this.$store.dispatch('api_photos',this.dat)
       .then(response =>{
-          if(response){
-            this.registraOferta()
-          }        
         })
-
-       
+       this.registraOferta()
          
      },
      registraOferta(){
