@@ -15,6 +15,7 @@ export const store = new Vuex.Store({
     productos: { id_producto: null, nombre_producto: null, cantidad_producto: null, precio_unidad: null, descripcion: null, images: null },
     products: [],
     detalle: null,
+    categorias: [],
     count:[],
    
   },
@@ -34,6 +35,9 @@ export const store = new Vuex.Store({
     getProducts1: state => {
       return state.products1
     },
+    getCategorias: state => {
+      return state.categorias
+    }
     
   }, plugins: [createPersistedState()],
   mutations: {
@@ -60,6 +64,9 @@ export const store = new Vuex.Store({
     },
     setId:(state,field) =>{
       state.cedula = field;
+    },
+    setCategorias: (state,field) =>{
+      state.categorias = field;
     }
   },
   actions: {
@@ -135,7 +142,19 @@ export const store = new Vuex.Store({
         })
       })
 
+    },
+    api_productoCategoria: (context,selected) =>{
+      
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:8000/api/v1.0/pCategoria/?q='+selected).then((response)=>{
+          console.log('response')  
+          resolve(response);
+        }).catch((err)=>{
+          console.log(err)          
+        })
+      })      
     }
-    
-  }
+
+
+    }
 })
